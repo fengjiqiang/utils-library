@@ -5,6 +5,7 @@ JS公共库 一些公共的方法
 
 ### 中国省市区数据（包括港澳台）
 
+- 大陆数据来源于[github](https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/pca-code.json)
 - 港澳台数据个人收集的，来源于淘宝
 - 港澳数据已完成
 - 台湾省数据正在收集中
