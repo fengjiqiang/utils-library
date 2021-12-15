@@ -8,7 +8,7 @@ JS公共库 一些公共的方法
 - 大陆数据来源于[github](https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/pca-code.json)
 - 港澳台数据个人收集的，来源于淘宝
 - 港澳数据已完成
-- 台湾省数据正在收集中
+- 台湾省数据已收集完成，到省市区或者省县一级
 
 ## utils.js
 
