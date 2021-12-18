@@ -1,0 +1,30 @@
+{
+  "name": "@ethafeng/utils-library",
+  "version": "1.0.0",
+  "description": "JS公共库 一些公共的方法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengjiqiang/utils-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fengjiqiang/utils-library/issues"
+  },
+  "homepage": "https://github.com/fengjiqiang/utils-library#readme",
+  "directories": {
+    "utils": "utils"
+  },
+  "files": [
+    "utils",
+    "citys"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}
