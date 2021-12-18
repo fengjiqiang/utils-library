@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/fengjiqiang/utils-library#readme",
   "directories": {
-    "utils": "utils"
+    "utils": "utils",
+    "citys": "citys"
   },
   "files": [
     "utils",
