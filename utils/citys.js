@@ -18478,4 +18478,6 @@ const area = [
     }
 ]
 
-export default { area }
+export function getCitys() {
+    return area
+}
