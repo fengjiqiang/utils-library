@@ -189,11 +189,16 @@ export function getStrLength(str) {
 
 /**
  * 随机数生成
+ * @param {*} number 随机数位数
  */
-export function uuid() {
+export function uuid(number) {
+    let n = 36   // 默认36位
+    if (typeof number === 'number' && !isNaN(number)) {
+        n = number
+    }
     const s = [];
     const hexDigits = '0123456789abcdef';
-    for (let i = 0; i < 36; i += 1) {
+    for (let i = 0; i < n; i += 1) {
         s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
     }
     s[14] = '4';
