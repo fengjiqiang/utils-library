@@ -1,6 +1,26 @@
 # utils-library
 JS公共库 一些公共的方法
 
+## Useage
+
+- npm安装库
+```bash
+npm i @ethafeng/utils-library
+```
+- 项目中引入该库中需要用到的函数 比如，`isNumber()`
+```javascript
+import { isNumber } from '@ethafeng/utils-library'
+```
+- 使用
+```javascript
+processData = (n) => {
+    isNumber(n) ? console.log(`${n}为数字`) : console.log(`${n}不是数字`)
+}
+```
+- 注意（重要‼️）
+
+`import`的时候是`isNumber`，使用的时候是`isNumber()`，因为它是一个函数，在这个库中所有导出的都是一个函数，因为在使用时要注意。
+
 ## citys.js
 
 ### 中国省市区数据（包括港澳台）
@@ -9,12 +29,16 @@ JS公共库 一些公共的方法
 - 港澳台数据个人收集的，来源于淘宝
 - 港澳数据已完成
 - 台湾省数据已收集完成，到省市区或者省县一级
+- 使用数据时导入`getCitys`，即
+```javascript
+import { getCitys } from '@ethafeng/utils-library'
+```
 
 ## utils.js
 
 ### 一些常用的JS公共方法
 
-- 是否为数组 `isNumber()`
+- 是否为数字 `isNumber()`
 - 时间戳与日期字符串的转化
     - 时间戳转化为日期字符串 `dealTableTime()`
     - 日期时间转化为时间戳 `dealDateTime()`
