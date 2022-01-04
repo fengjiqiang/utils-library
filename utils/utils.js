@@ -172,7 +172,6 @@ export function strTrim(str) {
 /**
  * 获取字符串长度 汉字占两个
  * @param {*} str 字符串
- * @returns 
  */
 export function getStrLength(str) {
     let w = 0;
@@ -212,7 +211,6 @@ export function uuid(number) {
  * @param {*} array 原数组
  * @param {*} from 开始位置索引
  * @param {*} to 目标位置索引
- * @returns 
  */
 export function arrayMove(array, from, to) {
     if (Math.abs(from - to) > 60) {
@@ -228,4 +226,37 @@ export function arrayMove(array, from, to) {
         array[to] = target;
     }
     return array
+}
+
+/**
+ * base64转File
+ * @param {*} dataurl base64
+ * @param {*} filename 文件名
+ */
+export function dataURLtoFile(dataurl, filename) {
+    let arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+}
+
+/**
+ * base64转Blob
+ * @param {*} dataurl base64
+ */
+export function dataURLtoBlob(dataurl) {
+    let arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], { type: mime });
 }
