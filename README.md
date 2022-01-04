@@ -7,7 +7,7 @@ JS公共库 一些公共的方法
 ```bash
 npm i @ethafeng/utils-library
 ```
-- 项目中引入该库中需要用到的函数 比如，`isNumber()`
+- 项目中引入该库中需要用到的函数 比如，`isNumber`
 ```javascript
 import { isNumber } from '@ethafeng/utils-library'
 ```
@@ -58,6 +58,11 @@ import { getCitys } from '@ethafeng/utils-library'
 - base64转`File`/`Blob`
     - base64转File `dataURLtoFile`
     - base64转Blob `dataURLtoBlob`
+- 获取文件后缀名 `getExt`
+- 简单的深拷贝(缺陷：只拷贝对象、数组以及对象数组) `deepCopy`
+- 数组去重 `uniqueArray`
+- 对象转化为formdata `getFormData`
+- 保留小数点以后几位 `cutNumber`
 
 ## reg.js
 

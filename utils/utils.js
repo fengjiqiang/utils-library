@@ -44,6 +44,23 @@ export function dealSearchTime(str, isStart) {
 }
 
 /**
+ * 获取文件后缀名
+ * @param {String} filename
+ */
+export function getExt(filename) {
+    if (typeof filename == 'string') {
+        let fileSuffix = filename.split('.')
+        if (fileSuffix && fileSuffix?.length > 1) {
+            return fileSuffix.pop().toLowerCase()
+        } else {
+            throw new Error('文件名没有后缀')
+        }
+    } else {
+        throw new Error('文件名必须是字符串类型')
+    }
+}
+
+/**
  * 根据文件后缀区分文件
  * @param {*} fileName 文件名（带后缀）
  */
@@ -98,7 +115,7 @@ export function getFileType(fileName) {
 }
 
 /**
- * 复制
+ * 复制内容到剪贴板
  * @param {*} info 要复制的内容
  * @param {*} CB 复制后的回调
  */
@@ -259,4 +276,65 @@ export function dataURLtoBlob(dataurl) {
         u8arr[n] = bstr.charCodeAt(n);
     }
     return new Blob([u8arr], { type: mime });
+}
+
+/**
+ * 简单的深拷贝
+ * 缺陷：只拷贝对象、数组以及对象数组，对于大部分场景已经足够
+ * @param {Object} obj
+ */
+export function deepCopy(obj) {
+    if (typeof obj != 'object') {
+        return obj
+    }
+    if (obj == null) {
+        return obj
+    }
+    return JSON.parse(JSON.stringify(obj))
+}
+
+/**
+ * 数组去重
+ * @param {Array} arr
+ */
+export function uniqueArray(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error('参数必须是数组类型')
+    }
+    if (arr.length == 1) {
+        return arr
+    }
+    return [...new Set(arr)]
+}
+
+/**
+ * 对象转化为formdata
+ * 上传文件时需要新建一个FormData对象
+ * @param {Object} object
+ */
+export function getFormData(object) {
+    const formData = new FormData()
+    Object.keys(object).forEach(key => {
+        const value = object[key]
+        if (Array.isArray(value)) {
+            value.forEach((subValue, i) =>
+                formData.append(key + `[${i}]`, subValue)
+            )
+        } else {
+            formData.append(key, object[key])
+        }
+    })
+    return formData
+}
+
+/**
+ * 保留小数点以后几位，默认2位
+ * @param {*} number 浮点数
+ * @param {*} no 保留位数，默认2
+ */
+export function cutNumber(number, no = 2) {
+    if (typeof number != 'number') {
+        number = Number(number)
+    }
+    return Number(number.toFixed(no))
 }
