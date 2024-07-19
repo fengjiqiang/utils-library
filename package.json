@@ -1,6 +1,6 @@
 {
   "name": "@ethafeng/utils-library",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "JS公共库 一些公共的方法以及中国省市区（包括港澳台）数据",
   "main": "index.js",
   "scripts": {
