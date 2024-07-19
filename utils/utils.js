@@ -1,4 +1,5 @@
 // 一些常用的公共方法
+import dayjs from "dayjs"
 
 /**
  * 判断是否为数字
@@ -15,7 +16,7 @@ export function dealTableTime(str, format = 'YYYY.MM.DD HH:mm') {
     if (!str) {
         return ''
     }
-    return moment(str * 1000).format(format)
+    return dayjs(str * 1000).format(format)
 }
 
 /**
@@ -30,7 +31,7 @@ export function dealDateTime(str) {
 }
 
 /**
- * 查询将日期转化为时间戳
+ * 查询将日期转化为时间戳（秒级）
  */
 export function dealSearchTime(str, isStart) {
     if (!str) {
@@ -41,6 +42,18 @@ export function dealSearchTime(str, isStart) {
     } else {
         return new Date(str + ' 23:59:59').getTime() / 1000
     }
+}
+
+/**
+ * 获取文件名（不包括后缀）
+ */
+export function getFileName(fileName) {
+  if (typeof fileName !== "string" || fileName.length === 0) {
+    throw new Error("期望一个非空字符串作为参数");
+  }
+  let index = fileName.lastIndexOf(".")
+  if (index !== -1) return fileName.substring(0, index)
+  else return fileName
 }
 
 /**
@@ -337,4 +350,50 @@ export function cutNumber(number, no = 2) {
         number = Number(number)
     }
     return Number(number.toFixed(no))
+}
+
+/**
+ * 生成 [min, max] 范围内的随机整数
+ */
+export function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+/**
+ * 格式化utc时间
+ * @param {String} str 2024-07-17T06:27:52.000+00:00
+ */
+export const formatUtc = (str, format = 'YYYY-MM-DD HH:mm:ss') => {
+  if (!str) {
+    return ''
+  }
+  return dayjs(str).format(format)
+}
+
+/**
+ * 根据指定的位置，提取字符串中斜杠(/)前或后的部分。
+ * @param {string} str - 待处理的字符串。
+ * @param {('before'|'after')} position - 斜杠的位置，'before'表示提取斜杠前的部分，'after'表示提取斜杠后的部分。
+ * @returns {string|undefined} - 返回提取的字符串部分，如果无法提取则返回undefined。
+ * @throws {TypeError} - 如果`position`参数不是预期的'before'或'after'，抛出类型错误。
+ */
+export function getSlashSegment(str, position = 'before') {
+  // 参数校验
+  if (typeof str !== 'string') {
+    throw new TypeError('Expected the first argument to be a string.')
+  }
+  if (position !== 'before' && position !== 'after') {
+    throw new TypeError(`Expected the second argument to be 'before' or 'after', but got '${position}'.`)
+  }
+
+  // 当字符串为空或未定义时，直接返回undefined
+  if (!str) {
+    return undefined
+  }
+
+  // 根据position参数执行相应的正则表达式匹配
+  const match = position === 'before' ? str.match(/^(.*)\//) : str.match(/\/(.*)$/)
+
+  // 如果匹配成功，返回匹配结果的第一个元素（即排除整个匹配结果的数组）；否则返回原字符串
+  return match ? match[1] : str
 }

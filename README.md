@@ -40,9 +40,9 @@ import { getCitys } from '@ethafeng/utils-library'
 
 - 是否为数字 `isNumber`
 - 时间戳与日期字符串的转化
-    - 时间戳转化为日期字符串 `dealTableTime`
-    - 日期时间转化为时间戳 `dealDateTime`
-    - 查询将日期转化为时间戳 `dealSearchTime`
+    - 时间戳（秒级）转化为日期字符串 `dealTableTime`
+    - 日期时间转化为时间戳（秒级） `dealDateTime`
+    - 查询将日期转化为时间戳（秒级） `dealSearchTime`
 - 文本复制 `copy`
 - 文件（`url`/`blob`）下载
     - blob下载 `downloadFile`
@@ -53,8 +53,9 @@ import { getCitys } from '@ethafeng/utils-library'
     - 获取字符串长度(一个汉字占两个) `getStrLength`
 - n位随机数生成 `uuid`
 - 数组元素移动 `arrayMove`
-- 后续更新...
+
 #### 2022/01/04 新增
+
 - base64转`File`/`Blob`
     - base64转File `dataURLtoFile`
     - base64转Blob `dataURLtoBlob`
@@ -64,6 +65,12 @@ import { getCitys } from '@ethafeng/utils-library'
 - 对象转化为formdata `getFormData`
 - 保留小数点以后几位 `cutNumber`
 
+#### 2024/07/19 新增
+
+- 生成[min, max] 范围内的随机整数 `randomInt`
+- 格式化utc时间 `formatUtc`
+- 根据指定的位置，提取字符串中斜杠(/)前或后的部分 `getSlashSegment`
+- 后续更新...
 ## reg.js
 
 ### 一些常用的正则表达式

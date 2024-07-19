@@ -25,5 +25,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dayjs": "^1.11.12"
+  }
 }
